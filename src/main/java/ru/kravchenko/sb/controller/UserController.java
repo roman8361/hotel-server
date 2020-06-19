@@ -1,5 +1,6 @@
 package ru.kravchenko.sb.controller;
 
+import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
@@ -16,6 +17,10 @@ import java.util.UUID;
 
 @Controller
 @SessionScope
+@URLMapping(
+        id = "users",
+        pattern = "/users",
+        viewId = "/WEB-INF/view/users.xhtml")
 public class UserController {
 
     @Autowired
@@ -34,6 +39,7 @@ public class UserController {
     }
 
     public void createUser(){
+        System.out.println("createUser");
         final User user = new User();
         user.setLogin("Vasek");
         user.setPassword("2222");
