@@ -1,24 +1,22 @@
 package ru.kravchenko.sb.controller;
 
-
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.context.annotation.RequestScope;
 import ru.kravchenko.sb.api.repository.GuestRepository;
 import ru.kravchenko.sb.entity.Guest;
 import ru.kravchenko.sb.util.GenerateRandomNumberUtils;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Controller
-@SessionScope
+@RequestScope
 @URLMapping(
-        id = "guestEdit",
-        pattern = "/guestEdit",
-        viewId = "/WEB-INF/view/guestEdit.xhtml")
-public class GuestEditController {
+        id = "newGuest",
+        pattern = "/newGuest",
+        viewId = "/WEB-INF/view/newGuest.xhtml")
+public class GuestInsertController {
 
     @Autowired
     private GuestRepository guestRepository;
@@ -29,11 +27,6 @@ public class GuestEditController {
 
     {
         guest.setCodeActivateMobileApp(GenerateRandomNumberUtils.getStringRandomValue());
-    }
-
-    public void init() {
-        Optional<Guest> guest = guestRepository.findById(id);
-        guest.ifPresent(value -> this.guest = value);
     }
 
     public String save() {
@@ -47,14 +40,6 @@ public class GuestEditController {
 
     public void setGuest(final Guest project) {
         this.guest = project;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
 }

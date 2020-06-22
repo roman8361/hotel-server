@@ -60,24 +60,24 @@
 
                     <p:column width="30" style="text-align: center;">
                         <p:link outcome="guestEdit">
-                            <i class="fa fa-edit" style="font-size: 1.5em;margin: 5px"/>
-                            <f:param name="id" value="#{guest.id}" />
+                            <i class="pi pi-pencil" style="font-size: 1.5em;margin: 5px"/>
+                            <f:param name="id" value="#{guest.id}"/>
                         </p:link>
                     </p:column>
 
                     <p:column width="30" style="text-align: center;">
                         <p:commandLink actionListener="#{guestListController.removeGuestById(guest.id)}" update="@form">
-                            <i class="fa fa-trash" style="font-size: 1.5em;margin: 5px;"/>
+                            <i class="pi pi-times" style="font-size: 1.5em;margin: 5px"/>
                         </p:commandLink>
                     </p:column>
 
                 </p:dataTable>
                 <p:spacer height="20"/>
                 <p:outputPanel>
-                    <p:button value="CREATE" outcome="guestEdit" />
+                    <p:button value="СОЗДАТЬ ЗАПИСЬ" outcome="newGuest"/>
                     <p:spacer width="20"/>
-                    <p:commandButton value="REFRESH" update="@form"/>
                 </p:outputPanel>
+
             </h:form>
         </ui:define>
     </ui:composition>

@@ -1,4 +1,4 @@
-package ru.kravchenko.sb.model.entity;
+package ru.kravchenko.sb.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

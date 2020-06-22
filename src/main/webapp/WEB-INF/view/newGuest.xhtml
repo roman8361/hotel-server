@@ -7,70 +7,65 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-<f:metadata>
-    <f:viewParam name="id" value="#{guestEditController.id}" />
-    <f:viewAction action="#{guestEditController.init}" />
-</f:metadata>
-
 <f:view>
     <ui:composition template="/WEB-INF/view/templates/header.xhtml">
-        <ui:param name="title" value="ADMIN" />
+        <ui:param name="title" value="ADMIN"/>
         <ui:define name="content">
-            <h1><p:outputLabel value="EDIT GUEST" /></h1>
+            <h1><p:outputLabel value="EDIT GUEST"/></h1>
             <h:form>
 
                 <p:outputPanel>
-                    <p:outputLabel value="ФАМИЛИЯ" />
+                    <p:outputLabel value="ФАМИЛИЯ"/>
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.surName}" />
+                    <p:inputText value="#{guestInsertController.guest.surName}"/>
                 </p:outputPanel>
                 <p:spacer height="20"/>
 
                 <p:outputPanel>
-                    <p:outputLabel value="ИМЯ" />
+                    <p:outputLabel value="ИМЯ"/>
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.firstName}" />
+                    <p:inputText value="#{guestInsertController.guest.firstName}"/>
                 </p:outputPanel>
-                <p:spacer height="20" />
+                <p:spacer height="20"/>
 
                 <p:outputPanel>
-                    <p:outputLabel value="ОТЧЕСТВО" />
+                    <p:outputLabel value="ОТЧЕСТВО"/>
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.secondName}" />
+                    <p:inputText value="#{guestInsertController.guest.secondName}"/>
                 </p:outputPanel>
-                <p:spacer height="20" />
+                <p:spacer height="20"/>
 
                 <p:outputPanel>
-                    <p:outputLabel value="КОМНАТА" />
+                    <p:outputLabel value="КОМНАТА"/>
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.roomNumber}" />
+                    <p:inputText value="#{guestInsertController.guest.roomNumber}"/>
                 </p:outputPanel>
 
                 <p:outputPanel>
-                    <p:outputLabel value="ДАТА ЗАЕЗДА" />
+                    <p:outputLabel value="ДАТА ЗАЕЗДА"/>
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:calendar value="#{guestEditController.guest.arrivalDate}" />
+                    <p:calendar value="#{guestInsertController.guest.arrivalDate}"/>
                 </p:outputPanel>
-                <p:spacer height="20" />
+                <p:spacer height="20"/>
 
                 <p:outputPanel>
-                    <p:outputLabel value="ДАТА ВЫЕЗДА" />
+                    <p:outputLabel value="ДАТА ВЫЕЗДА"/>
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:calendar value="#{guestEditController.guest.departureDate}" />
+                    <p:calendar value="#{guestInsertController.guest.departureDate}"/>
                 </p:outputPanel>
-                <p:spacer height="20" />
+                <p:spacer height="20"/>
 
                 <p:outputPanel>
-                    <p:commandButton value="СОХРАНИТЬ" action="#{guestEditController.save}"/>
-                    <p:spacer width="20" />
+                    <p:commandButton value="СОХРАНИТЬ" action="#{guestInsertController.save}"/>
+                    <p:spacer width="20"/>
                     <p:button value="СПИСОК ГОСТЕЙ" outcome="guestList">
-                        <f:param name="a" value="1" />
+                        <f:param name="a" value="1"/>
                     </p:button>
                 </p:outputPanel>
 

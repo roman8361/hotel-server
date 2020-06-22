@@ -4,38 +4,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
 
 <h:body>
 
     <ui:composition template="/WEB-INF/view/templates/header.xhtml">
-        <ui:param name="title" value="Коды Bluetooth замков" />
+        <ui:param name="title" value="Коды Bluetooth замков"/>
         <ui:define name="content">
             <h:form>
-                <h1><p:outputLabel value="Коды Bluetooth замков" /></h1>
+                <h1><p:outputLabel value="КОДЫ Bluetooth ЗАМКОВ С ПРИВЯЗКОЙ К КОМНАТАМ"/></h1>
             </h:form>
 
+            <p:spacer height="10"/>
 
+            <h:form>
+                <p:dataTable id="mainTable" var="code" value="#{bluetoothCodesListController.codeList}">
+                    <p:column headerText="Комната" sortBy="#{code.roomNumber}" width="200">
+                        <p:outputLabel value="#{code.roomNumber}"/>
+                    </p:column>
+                    <p:column headerText="Bluetooth код" sortBy="#{code.lockCode}" width="200">
+                        <p:outputLabel value="#{code.lockCode}"/>
+                    </p:column>
 
-    <p:spacer height="10"/>
+                </p:dataTable>
 
-    <h:form>
-        <p:dataTable id="mainTable" var="code" value="#{bluetoothCodesListController.codeList}">
-            <p:column headerText="Комната" sortBy="#{code.roomNumber}" width="200">
-                <p:outputLabel value="#{code.roomNumber}"/>
-            </p:column>
-            <p:column headerText="Bluetooth код" sortBy="#{code.lockCode}" width="200">
-                <p:outputLabel value="#{code.lockCode}"/>
-            </p:column>
+                <p:spacer height="10"/>
 
-        </p:dataTable>
-
-        <p:spacer height="10"/>
-
-    </h:form>
-
+            </h:form>
         </ui:define>
     </ui:composition>
 

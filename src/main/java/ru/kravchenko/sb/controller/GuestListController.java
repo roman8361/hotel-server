@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 import ru.kravchenko.sb.api.repository.GuestRepository;
-import ru.kravchenko.sb.model.entity.Guest;
+import ru.kravchenko.sb.entity.Guest;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;

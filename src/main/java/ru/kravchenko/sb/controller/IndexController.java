@@ -12,5 +12,4 @@ import org.springframework.web.context.annotation.SessionScope;
         viewId = "/WEB-INF/view/index.xhtml")
 public class IndexController {
 
-
 }

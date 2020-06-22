@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.kravchenko.sb.api.repository.LockCodeRepository;
-import ru.kravchenko.sb.model.entity.LockCode;
+import ru.kravchenko.sb.entity.LockCode;
 
 import java.util.UUID;
 

@@ -14,7 +14,6 @@
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
-<!--    <context:component-scan base-package="ru.iteco.tm.frontendprimefaces"/>-->
     <mvc:annotation-driven/>
 
 </beans>
