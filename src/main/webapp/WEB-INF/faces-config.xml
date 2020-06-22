@@ -27,15 +27,19 @@
             <to-view-id>/WEB-INF/view/users.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
-<!--        <navigation-case>-->
-<!--            <from-outcome>projectListOutcome</from-outcome>-->
-<!--            <to-view-id>/WEB-INF/jsf/project/projectList.xhtml</to-view-id>-->
-<!--            <redirect/>-->
-<!--        </navigation-case>-->
-<!--        <navigation-case>-->
-<!--            <from-outcome>projectEditOutcome</from-outcome>-->
-<!--            <to-view-id>/WEB-INF/jsf/project/projectEdit.xhtml</to-view-id>-->
-<!--        </navigation-case>-->
+        <navigation-case>
+            <from-outcome>bluetoothCodesList</from-outcome>
+            <to-view-id>/WEB-INF/view/bluetoothCodesList.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>guestList</from-outcome>
+            <to-view-id>/WEB-INF/view/guestList.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>guestEdit</from-outcome>
+            <to-view-id>/WEB-INF/view/guestEdit.xhtml</to-view-id>
+        </navigation-case>
 <!--        <navigation-case>-->
 <!--            <from-outcome>taskListOutcome</from-outcome>-->
 <!--            <to-view-id>/WEB-INF/jsf/task/taskList.xhtml</to-view-id>-->

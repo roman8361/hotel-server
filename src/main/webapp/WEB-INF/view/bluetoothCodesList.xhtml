@@ -11,10 +11,10 @@
 <h:body>
 
     <ui:composition template="/WEB-INF/view/templates/header.xhtml">
-        <ui:param name="title" value="MAIN" />
+        <ui:param name="title" value="Коды Bluetooth замков" />
         <ui:define name="content">
             <h:form>
-                <h1><p:outputLabel value="USERS" /></h1>
+                <h1><p:outputLabel value="Коды Bluetooth замков" /></h1>
             </h:form>
 
 
@@ -22,23 +22,17 @@
     <p:spacer height="10"/>
 
     <h:form>
-        <p:dataTable id="mainTable" var="user" value="#{userController.userList}">
-            <p:column headerText="ID" sortBy="#{user.id}" width="200">
-                <p:outputLabel value="#{user.id}"/>
+        <p:dataTable id="mainTable" var="code" value="#{bluetoothCodesListController.codeList}">
+            <p:column headerText="Комната" sortBy="#{code.roomNumber}" width="200">
+                <p:outputLabel value="#{code.roomNumber}"/>
             </p:column>
-            <p:column headerText="NAME" sortBy="#{user.password}" width="200">
-                <p:outputLabel value="#{user.password}"/>
+            <p:column headerText="Bluetooth код" sortBy="#{code.lockCode}" width="200">
+                <p:outputLabel value="#{code.lockCode}"/>
             </p:column>
-            <p:column headerText="LOGIN" sortBy="#{user.login}" style="width: 100%">
-                <p:outputLabel value="#{user.login}"/>
-            </p:column>
+
         </p:dataTable>
 
         <p:spacer height="10"/>
-
-        <p:outputPanel>
-            <p:commandButton update="mainTable" value="CREATE USER" actionListener="#{userController.createUser}" />
-        </p:outputPanel>
 
     </h:form>
 
