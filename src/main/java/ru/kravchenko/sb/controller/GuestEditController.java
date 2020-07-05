@@ -2,16 +2,16 @@ package ru.kravchenko.sb.controller;
 
 
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
-import ru.kravchenko.sb.api.repository.GuestRepository;
-import ru.kravchenko.sb.entity.Guest;
-import ru.kravchenko.sb.util.GenerateRandomNumberUtils;
+import ru.kravchenko.sb.api.service.IGuestService;
+import ru.kravchenko.sb.domain.entity.Guest;
 
-import java.util.Optional;
-import java.util.UUID;
-
+@Getter
+@Setter
 @Controller
 @SessionScope
 @URLMapping(
@@ -21,40 +21,19 @@ import java.util.UUID;
 public class GuestEditController {
 
     @Autowired
-    private GuestRepository guestRepository;
+    private IGuestService guestService;
 
-    private String id = UUID.randomUUID().toString();
+    private String guestId;
 
     private Guest guest = new Guest();
 
-    {
-        guest.setCodeActivateMobileApp(GenerateRandomNumberUtils.getStringRandomValue());
-    }
-
     public void init() {
-        Optional<Guest> guest = guestRepository.findById(id);
-        guest.ifPresent(value -> this.guest = value);
+        guest = guestService.findById(guestId);
     }
 
-    public String save() {
-        guestRepository.save(guest);
+    public String edit() {
+        guestService.editGuest(guest);
         return "guestList";
-    }
-
-    public Guest getGuest() {
-        return guest;
-    }
-
-    public void setGuest(final Guest project) {
-        this.guest = project;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
 }

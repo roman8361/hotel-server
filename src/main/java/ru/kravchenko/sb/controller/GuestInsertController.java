@@ -4,11 +4,10 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.RequestScope;
-import ru.kravchenko.sb.api.repository.GuestRepository;
-import ru.kravchenko.sb.entity.Guest;
-import ru.kravchenko.sb.util.GenerateRandomNumberUtils;
-
-import java.util.UUID;
+import ru.kravchenko.sb.api.service.IGuestService;
+import ru.kravchenko.sb.api.service.IRoomService;
+import ru.kravchenko.sb.domain.entity.Guest;
+import ru.kravchenko.sb.domain.entity.Room;
 
 @Controller
 @RequestScope
@@ -19,18 +18,21 @@ import java.util.UUID;
 public class GuestInsertController {
 
     @Autowired
-    private GuestRepository guestRepository;
+    private IGuestService guestService;
 
-    private String id = UUID.randomUUID().toString();
+    @Autowired
+    private IRoomService roomService;
 
     private Guest guest = new Guest();
 
-    {
-        guest.setCodeActivateMobileApp(GenerateRandomNumberUtils.getStringRandomValue());
-    }
+    private String roomNumber = "";
+
 
     public String save() {
-        guestRepository.save(guest);
+        Room room = roomService.findByRoomNumber(roomNumber);
+        guest.setRoom(room);
+        guestService.checkGuestItRoom(guest);
+
         return "guestList";
     }
 
@@ -40,6 +42,14 @@ public class GuestInsertController {
 
     public void setGuest(final Guest project) {
         this.guest = project;
+    }
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
 }

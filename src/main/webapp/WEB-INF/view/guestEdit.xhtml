@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
 
 <f:metadata>
-    <f:viewParam name="id" value="#{guestEditController.id}" />
+    <f:viewParam name="id" value="#{guestEditController.guestId}" />
     <f:viewAction action="#{guestEditController.init}" />
 </f:metadata>
 
@@ -47,7 +47,7 @@
                     <p:outputLabel value="КОМНАТА" />
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.roomNumber}" />
+                    <p:inputText value="#{guestEditController.guest.room.roomNumber}" />
                 </p:outputPanel>
 
                 <p:outputPanel>
@@ -67,7 +67,7 @@
                 <p:spacer height="20" />
 
                 <p:outputPanel>
-                    <p:commandButton value="СОХРАНИТЬ" action="#{guestEditController.save}"/>
+                    <p:commandButton value="СОХРАНИТЬ" action="#{guestEditController.edit}"/>
                     <p:spacer width="20" />
                     <p:button value="СПИСОК ГОСТЕЙ" outcome="guestList">
                         <f:param name="a" value="1" />

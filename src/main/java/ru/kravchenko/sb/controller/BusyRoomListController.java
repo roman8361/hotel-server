@@ -16,10 +16,10 @@ import java.util.List;
 @Controller
 @SessionScope
 @URLMapping(
-        id = "bluetoothCodesList",
-        pattern = "/bluetoothCodesList",
-        viewId = "/WEB-INF/view/bluetoothCodesList.xhtml")
-public class BluetoothCodesListController {
+        id = "busyRoomList",
+        pattern = "/busyRoomList",
+        viewId = "/WEB-INF/view/busyRoomList.xhtml")
+public class BusyRoomListController {
 
     @Autowired
     private BluetoothCodeRepository lockCodeRepository;

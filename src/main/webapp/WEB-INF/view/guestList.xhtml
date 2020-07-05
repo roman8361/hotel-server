@@ -51,11 +51,11 @@
                     </p:column>
 
                     <p:column headerText="КОМНАТА" width="100" style="text-align: left;">
-                        <p:outputLabel value="#{guest.roomNumber}"/>
+                        <p:outputLabel value="#{guest.room.roomNumber}"/>
                     </p:column>
 
                     <p:column headerText="КОД АКТИВАЦИИ" width="100" style="text-align: left;">
-                        <p:outputLabel value="#{guest.codeActivateMobileApp}"/>
+                        <p:outputLabel value="#{guest.activateCodeMobile.activateCodeMobile}"/>
                     </p:column>
 
                     <p:column width="30" style="text-align: center;">
@@ -66,7 +66,7 @@
                     </p:column>
 
                     <p:column width="30" style="text-align: center;">
-                        <p:commandLink actionListener="#{guestListController.removeGuestById(guest.id)}" update="@form">
+                        <p:commandLink actionListener="#{guestListController.evictGuest(guest.id)}" update="@form">
                             <i class="pi pi-times" style="font-size: 1.5em;margin: 5px"/>
                         </p:commandLink>
                     </p:column>

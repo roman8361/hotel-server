@@ -4,11 +4,11 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
-import ru.kravchenko.sb.api.repository.GuestRepository;
-import ru.kravchenko.sb.entity.Guest;
+import ru.kravchenko.sb.api.service.IGuestService;
+import ru.kravchenko.sb.domain.entity.Guest;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -20,9 +20,9 @@ import java.util.List;
 public class GuestListController {
 
     @Autowired
-    private GuestRepository guestRepository;
+    private IGuestService guestService;
 
-    private List<Guest> guestList = new ArrayList<>();
+    private List<Guest> guestList = new LinkedList<>();
 
     @PostConstruct
     private void init() {
@@ -31,7 +31,7 @@ public class GuestListController {
 
     private void reload() {
         guestList.clear();
-        guestList.addAll(guestRepository.findAll());
+        guestList.addAll(guestService.findAll());
     }
 
     public List<Guest> getGuestList() {
@@ -39,8 +39,8 @@ public class GuestListController {
         return guestList;
     }
 
-    public void removeGuestById(final String guestId) {
-        guestRepository.deleteById(guestId);
+    public void evictGuest(String guestId) {
+        guestService.evictGuest(guestId);
         reload();
     }
 

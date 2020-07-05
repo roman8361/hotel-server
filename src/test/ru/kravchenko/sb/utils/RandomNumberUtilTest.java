@@ -1,4 +1,4 @@
-package ru.kravchenko.sb.repository;
+package ru.kravchenko.sb.utils;
 
 import org.junit.Test;
 import ru.kravchenko.sb.util.GenerateRandomNumberUtils;
