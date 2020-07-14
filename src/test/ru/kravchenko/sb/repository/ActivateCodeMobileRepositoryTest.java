@@ -59,4 +59,9 @@ public class ActivateCodeMobileRepositoryTest {
         System.out.println(activateCodeMobile.getGuest().getRoom().getRoomNumber());
     }
 
+    @Test
+    public void dellAll(){
+        activateCodeMobileRepository.deleteAll();
+    }
+
 }

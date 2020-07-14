@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class AbstractEntityDto {
+abstract class AbstractEntityDto {
 
     private String id = UUID.randomUUID().toString();
 

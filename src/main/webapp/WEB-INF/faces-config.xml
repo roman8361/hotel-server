@@ -40,8 +40,8 @@
             <to-view-id>/WEB-INF/view/newGuest.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>busyRoomList</from-outcome>
-            <to-view-id>/WEB-INF/view/busyRoomList.xhtml</to-view-id>
+            <from-outcome>freeRoomList</from-outcome>
+            <to-view-id>/WEB-INF/view/freeRoomList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 

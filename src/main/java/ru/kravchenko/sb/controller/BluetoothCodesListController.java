@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 import ru.kravchenko.sb.api.repository.BluetoothCodeRepository;
+import ru.kravchenko.sb.api.service.IBluetoothCodeService;
+import ru.kravchenko.sb.domain.dto.BluetoothCodeDto;
 import ru.kravchenko.sb.domain.entity.BluetoothCode;
 
 import java.util.List;
@@ -22,10 +24,10 @@ import java.util.List;
 public class BluetoothCodesListController {
 
     @Autowired
-    private BluetoothCodeRepository lockCodeRepository;
+    private IBluetoothCodeService bluetoothCodeService;
 
-    public List<BluetoothCode> getCodeList() {
-        return lockCodeRepository.findAll();
+    public List<BluetoothCodeDto> getCodeList() {
+        return bluetoothCodeService.findAllBluetoothCodes();
     }
 
 }

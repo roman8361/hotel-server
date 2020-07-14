@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head></h:head>
+
+<h:body>
+
+    <ui:composition template="/WEB-INF/view/templates/header.xhtml">
+        <ui:param name="title" value="Свободные комнаты"/>
+        <ui:define name="content">
+            <h:form>
+                <h1><p:outputLabel value="Свободные и занятые номера"/></h1>
+            </h:form>
+
+            <p:spacer height="10"/>
+
+            <h:form>
+                <p:dataTable id="mainTable" var="freeRoom" value="#{freeRoomListController.freeRoomList}">
+                    <p:column headerText="Комната" sortBy="#{freeRoom.roomNumber}" width="200">
+                        <p:outputLabel value="#{freeRoom.roomNumber}"/>
+                    </p:column>
+                    <p:column headerText="#######" sortBy="#{freeRoom.arrivalRoom}" width="200">
+                        <p:outputLabel value="#{freeRoom.arrivalRoom}"/>
+                    </p:column>
+                    <p:column headerText="Выезда" sortBy="#{freeRoom.departureDate}" width="200">
+                        <p:outputLabel value="#{freeRoom.departureDate}">
+                            <f:convertDateTime pattern="dd.MM.yyyy"/>
+                        </p:outputLabel>
+                    </p:column>
+                    <p:column headerText="Гость" sortBy="#{freeRoom.surName}" width="200">
+                        <p:outputLabel value="#{freeRoom.surName}"/>
+                    </p:column>
+                </p:dataTable>
+
+                <p:spacer height="10"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</h:body>
+
+</html>

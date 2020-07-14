@@ -11,7 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class AbstractEntity {
+abstract class AbstractEntity {
 
     @Id
     @NotNull

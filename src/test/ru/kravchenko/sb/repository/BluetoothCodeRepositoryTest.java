@@ -35,7 +35,7 @@ public class BluetoothCodeRepositoryTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void dellAllBluetoothCode(){
         bluetoothCodeRepository.deleteAll();
     }

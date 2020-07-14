@@ -3,6 +3,7 @@ package ru.kravchenko.sb.domain.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.kravchenko.sb.domain.dto.ActivateCodeMobileDto;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,8 +19,17 @@ public class ActivateCodeMobile extends AbstractEntity{
 
     private Date dateCreateCode;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "guest_id", referencedColumnName = "id")
     private Guest guest;
+
+    public ActivateCodeMobileDto getDto() {
+        ActivateCodeMobileDto activateCodeMobileDto = new ActivateCodeMobileDto();
+        activateCodeMobileDto.setActivateCodeMobile(activateCodeMobile);
+        activateCodeMobileDto.setDateCreateCode(dateCreateCode);
+        activateCodeMobileDto.setGuestId(guest.getId());
+
+        return activateCodeMobileDto;
+    }
 
 }

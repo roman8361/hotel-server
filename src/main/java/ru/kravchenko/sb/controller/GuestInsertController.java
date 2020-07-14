@@ -1,14 +1,20 @@
 package ru.kravchenko.sb.controller;
 
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.RequestScope;
 import ru.kravchenko.sb.api.service.IGuestService;
 import ru.kravchenko.sb.api.service.IRoomService;
-import ru.kravchenko.sb.domain.entity.Guest;
-import ru.kravchenko.sb.domain.entity.Room;
+import ru.kravchenko.sb.domain.dto.GuestDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
 @Controller
 @RequestScope
 @URLMapping(
@@ -23,33 +29,19 @@ public class GuestInsertController {
     @Autowired
     private IRoomService roomService;
 
-    private Guest guest = new Guest();
-
-    private String roomNumber = "";
-
+    private GuestDto guestDto = new GuestDto();
 
     public String save() {
-        Room room = roomService.findByRoomNumber(roomNumber);
-        guest.setRoom(room);
-        guestService.checkGuestItRoom(guest);
-
+        guestService.checkGuestItRoom(guestDto);
         return "guestList";
     }
 
-    public Guest getGuest() {
-        return guest;
+    public GuestDto getGuestDto() {
+        return guestDto;
     }
 
-    public void setGuest(final Guest project) {
-        this.guest = project;
-    }
-
-    public String getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setGuestDto(final GuestDto guestDto) {
+        this.guestDto = guestDto;
     }
 
 }

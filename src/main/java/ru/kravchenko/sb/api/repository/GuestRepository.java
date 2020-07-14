@@ -12,15 +12,20 @@ public interface GuestRepository extends JpaRepository<Guest, String> {
 
     Guest findBySurName(String surName);
 
-    @Query(value = "select * from guests g where g.room_id =?1", nativeQuery = true)
+    String queryAllByRoomId = "select * from guests g where g.room_id =?1";
+
+    @Query(value = queryAllByRoomId, nativeQuery = true)
     List<Guest> getAllGuestFromRoomId(String roomId);
 
+    String queryAllByRoomAndActivateCodeMobile = "select * from guests inner join rooms r on guests.room_id = r.id " +
+            "inner join activate_cods_mobile acm on guests.id = acm.guest_id";
 
-//    @Query(
-////            value = "SELECT * FROM Users u WHERE u.status = ?1",
-////            nativeQuery = true)
-////    User findUserByStatusNative(Integer status);
+    @Query(value = queryAllByRoomAndActivateCodeMobile, nativeQuery = true)
+    List<Guest> getAllGuestWithRoomAndCodeActivate();
 
-//    select * from guests where room_id = '2f15792c-0edb-48cd-bb17-3f82739d3459';
+    String queryAllByRoom = "select * from guests inner join rooms r on guests.room_id = r.id";
+
+    @Query(value = queryAllByRoom, nativeQuery = true)
+    List<Guest> getAllGuestWithRoom();
 
 }

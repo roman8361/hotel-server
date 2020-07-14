@@ -3,6 +3,7 @@ package ru.kravchenko.sb.domain.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.kravchenko.sb.domain.dto.GuestDto;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -35,5 +36,21 @@ public class Guest extends AbstractEntity {
 
     @OneToOne(mappedBy="guest", cascade = CascadeType.ALL, orphanRemoval = true)
     private ActivateCodeMobile activateCodeMobile;
+
+    public GuestDto getDto() {
+        GuestDto guestDto = new GuestDto();
+        guestDto.setId(id);
+        guestDto.setFirstName(firstName);
+        guestDto.setSecondName(secondName);
+        guestDto.setSurName(surName);
+        guestDto.setArrivalDate(arrivalDate);
+        guestDto.setDepartureDate(departureDate);
+        guestDto.setRoomId(room.getId());
+        guestDto.setRoomNumber(room.getRoomNumber());
+        guestDto.setActivateCodeMobile(activateCodeMobile.getActivateCodeMobile());
+        guestDto.setActivateCodeMobileId(activateCodeMobile.getId());
+
+        return guestDto;
+    }
 
 }

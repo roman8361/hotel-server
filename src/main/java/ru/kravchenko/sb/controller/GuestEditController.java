@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 import ru.kravchenko.sb.api.service.IGuestService;
-import ru.kravchenko.sb.domain.entity.Guest;
+import ru.kravchenko.sb.domain.dto.GuestDto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,14 +28,14 @@ public class GuestEditController {
 
     private String guestId;
 
-    private Guest guest = new Guest();
+    private GuestDto guestDto = new GuestDto();
 
     public void init() {
-        guest = guestService.findById(guestId);
+        guestDto = guestService.findGuestById(guestId);
     }
 
     public String edit() {
-        guestService.editGuest(guest);
+        guestService.editGuest(guestDto);
         return "guestList";
     }
 

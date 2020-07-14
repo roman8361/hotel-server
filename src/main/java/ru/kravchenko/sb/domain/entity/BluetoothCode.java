@@ -3,6 +3,7 @@ package ru.kravchenko.sb.domain.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.kravchenko.sb.domain.dto.BluetoothCodeDto;
 
 import javax.persistence.*;
 
@@ -19,5 +20,14 @@ public class BluetoothCode extends AbstractEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id", referencedColumnName = "id")
     private Room room;
+
+    public BluetoothCodeDto getDto(){
+        BluetoothCodeDto bluetoothCodeDto = new BluetoothCodeDto();
+        bluetoothCodeDto.setId(id);
+        bluetoothCodeDto.setBluetoothCode(bluetoothCode);
+        bluetoothCodeDto.setRoomNumber(room.getRoomNumber());
+
+        return bluetoothCodeDto;
+    }
 
 }

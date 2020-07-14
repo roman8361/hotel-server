@@ -23,7 +23,7 @@
                     <p:outputLabel value="ФАМИЛИЯ" />
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.surName}" />
+                    <p:inputText value="#{guestEditController.guestDto.surName}" />
                 </p:outputPanel>
                 <p:spacer height="20"/>
 
@@ -31,7 +31,7 @@
                     <p:outputLabel value="ИМЯ" />
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.firstName}" />
+                    <p:inputText value="#{guestEditController.guestDto.firstName}" />
                 </p:outputPanel>
                 <p:spacer height="20" />
 
@@ -39,22 +39,32 @@
                     <p:outputLabel value="ОТЧЕСТВО" />
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.secondName}" />
+                    <p:inputText value="#{guestEditController.guestDto.secondName}" />
                 </p:outputPanel>
                 <p:spacer height="20" />
 
                 <p:outputPanel>
-                    <p:outputLabel value="КОМНАТА" />
+                    <p:outputLabel value="КОМНАТА"/>
                 </p:outputPanel>
-                <p:outputPanel styleClass="ui-fluid">
-                    <p:inputText value="#{guestEditController.guest.room.roomNumber}" />
-                </p:outputPanel>
+                <p:selectOneMenu id="longItemLabel" value="#{guestEditController.guestDto.roomNumber}" style="width:70px">
+                    <f:selectItem itemLabel="1" itemValue="1" />
+                    <f:selectItem itemLabel="2" itemValue="2" />
+                    <f:selectItem itemLabel="3" itemValue="3" />
+                    <f:selectItem itemLabel="4" itemValue="4" />
+                    <f:selectItem itemLabel="5" itemValue="5" />
+                    <f:selectItem itemLabel="6" itemValue="6" />
+                    <f:selectItem itemLabel="7" itemValue="7" />
+                    <f:selectItem itemLabel="8" itemValue="8" />
+                    <f:selectItem itemLabel="9" itemValue="9" />
+                    <f:selectItem itemLabel="10" itemValue="10" />
+                </p:selectOneMenu>
+                <p:spacer height="20"/>
 
                 <p:outputPanel>
                     <p:outputLabel value="ДАТА ЗАЕЗДА" />
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:calendar value="#{guestEditController.guest.arrivalDate}" />
+                    <p:calendar value="#{guestEditController.guestDto.arrivalDate}" />
                 </p:outputPanel>
                 <p:spacer height="20" />
 
@@ -62,7 +72,7 @@
                     <p:outputLabel value="ДАТА ВЫЕЗДА" />
                 </p:outputPanel>
                 <p:outputPanel styleClass="ui-fluid">
-                    <p:calendar value="#{guestEditController.guest.departureDate}" />
+                    <p:calendar value="#{guestEditController.guestDto.departureDate}" />
                 </p:outputPanel>
                 <p:spacer height="20" />
 

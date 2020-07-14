@@ -15,10 +15,7 @@ import ru.kravchenko.sb.domain.entity.ActivateCodeMobile;
 import ru.kravchenko.sb.domain.entity.Guest;
 import ru.kravchenko.sb.domain.entity.Room;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -46,7 +43,7 @@ public class GuestRepositoryTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void dellAllGuest(){
         guestRepository.deleteAll();
     }
@@ -68,6 +65,37 @@ public class GuestRepositoryTest {
     public void getAllGuestFromRoomId(){
         List<Guest> guestList = guestRepository.getAllGuestFromRoomId("5b5a3f8f-c581-4b37-8c67-ca1b19d8f466");
         guestList.forEach(g -> System.out.println(g.getFirstName()));
+    }
+
+    @Test
+    public void getAllGuestWithQuery(){
+        List<Guest> guestList = guestRepository.getAllGuestWithRoomAndCodeActivate();
+        for (Guest guest : guestList) {
+            System.out.println(guest.getFirstName());
+            System.out.println(guest.getRoom().getRoomNumber());
+            System.out.println(guest.getActivateCodeMobile().getActivateCodeMobile());
+        }
+    }
+
+    @Test
+    public void findByIdFromList(){
+        List<Guest> guestList = guestRepository.getAllGuestWithRoomAndCodeActivate();
+        Guest result = guestList.stream().
+                filter(guest -> guest.getId().equals("779741c7-1ffa-4c4c-8d82-35623cc95b33")).findFirst().get();
+
+        System.out.println(result.getFirstName());
+        System.out.println(result.getRoom().getRoomNumber());
+        System.out.println(result.getActivateCodeMobile().getActivateCodeMobile());
+    }
+
+    @Test
+    public void updateGuest(){
+        List<Guest> guestList = guestRepository.getAllGuestWithRoomAndCodeActivate();
+        Guest result = guestList.stream().
+                filter(guest -> guest.getId().equals("b828d3d5-b624-4d5c-a917-1aa5707e28b2")).findFirst().get();
+
+        result.setFirstName("Егор");
+        guestRepository.save(result);
     }
 
     private Guest createGuest() {

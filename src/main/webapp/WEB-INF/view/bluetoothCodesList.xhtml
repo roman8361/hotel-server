@@ -20,8 +20,8 @@
 
             <h:form>
                 <p:dataTable id="mainTable" var="code" value="#{bluetoothCodesListController.codeList}">
-                    <p:column headerText="Комната" sortBy="#{code.room.roomNumber}" width="200">
-                        <p:outputLabel value="#{code.room.roomNumber}"/>
+                    <p:column headerText="Комната" sortBy="#{code.roomNumber}" width="200">
+                        <p:outputLabel value="#{code.roomNumber}"/>
                     </p:column>
                     <p:column headerText="Bluetooth код" sortBy="#{code.bluetoothCode}" width="200">
                         <p:outputLabel value="#{code.bluetoothCode}"/>

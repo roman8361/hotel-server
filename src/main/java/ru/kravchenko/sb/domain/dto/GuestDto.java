@@ -19,7 +19,17 @@ public class GuestDto extends AbstractEntityDto{
 
     private Date departureDate;
 
+    private String roomNumber;
+
+    private String activateCodeMobile;
+
     private String roomId;
+
+    private String activateCodeMobileId;
+
+    public GuestDto(){
+
+    }
 
     public GuestDto(String firstName, String secondName, String surName, Date arrivalDate,
                     Date departureDate, String roomId) {

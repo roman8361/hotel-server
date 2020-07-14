@@ -11,7 +11,9 @@ import ru.kravchenko.sb.api.repository.RoomRepository;
 import ru.kravchenko.sb.domain.entity.Guest;
 import ru.kravchenko.sb.domain.entity.Room;
 
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @SpringBootTest
@@ -46,6 +48,13 @@ public class RoomRepositoryTest {
 //    @Ignore
     public void dellAllRooms(){
         roomRepository.deleteAll();
+    }
+
+    @Test
+    public void allRoomsArrival(){
+        List<Room> roomList = roomRepository.findAll();
+        roomList.forEach(r -> r.setIsBusy(Boolean.FALSE));
+        roomRepository.saveAll(roomList);
     }
 
     @Test
@@ -93,6 +102,13 @@ public class RoomRepositoryTest {
             }
 
         }
+    }
+
+    @Test
+    public void filterTest(){
+        List<Room> allRoom = roomRepository.findAll();
+        List<Room> busyRoom = allRoom.stream().filter(room -> room.getIsBusy()).collect(Collectors.toList());
+        System.out.println(busyRoom.size());
     }
 
 }

@@ -1,40 +1,29 @@
 package ru.kravchenko.sb.service;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-import ru.kravchenko.sb.api.repository.ActivateCodeMobileRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import ru.kravchenko.sb.api.service.IActivateCodeMobileService;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.mockito.Mockito.when;
-
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class ActivateCodeMobileServiceTest {
 
-    @Mock
-    private ActivateCodeMobileRepository activateCodeMobileRepository;
+    @Autowired
+    private IActivateCodeMobileService activateCodeMobileService;
 
-    @InjectMocks
-    private ActivateCodeMobileService activateCodeMobileService;
-
-    @Test
-    public void getActivateCode(){
-        when(activateCodeMobileRepository.getAllActivateCodeMobile()).thenReturn(Arrays.asList("1234", "4321"));
-        System.out.println(activateCodeMobileService.generateActivateCode());
-    }
+//    ActivateCodeMobileDto createActivateCodeMobile(GuestDto guest);
+//
+//    String generateActivateCode();
+//
+//    ActivateCodeMobileDto updateActivateCodeMobile(GuestDto guest);
 
     @Test
-    public void testContains(){
-        List<String> list = Arrays.asList("1", "2", "3");
-        Assert.assertTrue(list.contains("1"));
-        Assert.assertTrue(list.contains("2"));
-        Assert.assertFalse(list.contains("4"));
-        Assert.assertFalse(list.contains("5"));
+    public void createActivateCodeMobileTest(){
+
     }
+
 
 }

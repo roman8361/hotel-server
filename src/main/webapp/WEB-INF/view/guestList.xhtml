@@ -14,7 +14,6 @@
             <h:form>
                 <h1><p:outputLabel value="СПИСОК ГОСТЕЙ"/></h1>
                 <p:dataTable id="dataTable" rowIndexVar="indexVar"
-
                              value="#{guestListController.guestList}" var="guest">
                     <f:facet name="header">
                         <p:outputPanel style="margin: 5px;">
@@ -51,11 +50,11 @@
                     </p:column>
 
                     <p:column headerText="КОМНАТА" width="100" style="text-align: left;">
-                        <p:outputLabel value="#{guest.room.roomNumber}"/>
+                        <p:outputLabel value="#{guest.roomNumber}"/>
                     </p:column>
 
                     <p:column headerText="КОД АКТИВАЦИИ" width="100" style="text-align: left;">
-                        <p:outputLabel value="#{guest.activateCodeMobile.activateCodeMobile}"/>
+                        <p:outputLabel value="#{guest.activateCodeMobile}"/>
                     </p:column>
 
                     <p:column width="30" style="text-align: center;">

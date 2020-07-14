@@ -1,4 +1,14 @@
 package ru.kravchenko.sb.domain.dto;
 
-public class BluetoothCodeDto {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class BluetoothCodeDto extends AbstractEntityDto {
+
+    private String bluetoothCode;
+
+    private String roomNumber;
+
 }

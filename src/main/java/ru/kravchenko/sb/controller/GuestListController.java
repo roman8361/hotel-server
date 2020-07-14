@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 import ru.kravchenko.sb.api.service.IGuestService;
-import ru.kravchenko.sb.domain.entity.Guest;
+import ru.kravchenko.sb.domain.dto.GuestDto;
 
 import javax.annotation.PostConstruct;
 import java.util.LinkedList;
@@ -22,7 +22,7 @@ public class GuestListController {
     @Autowired
     private IGuestService guestService;
 
-    private List<Guest> guestList = new LinkedList<>();
+    private List<GuestDto> guestList = new LinkedList<>();
 
     @PostConstruct
     private void init() {
@@ -31,10 +31,10 @@ public class GuestListController {
 
     private void reload() {
         guestList.clear();
-        guestList.addAll(guestService.findAll());
+        guestList.addAll(guestService.allGuestWithRoomAndCodeActivate());
     }
 
-    public List<Guest> getGuestList() {
+    public List<GuestDto> getGuestList() {
         reload();
         return guestList;
     }
