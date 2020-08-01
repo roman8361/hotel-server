@@ -10,9 +10,6 @@ import org.springframework.web.context.annotation.SessionScope;
 import ru.kravchenko.sb.api.service.IGuestService;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @Controller

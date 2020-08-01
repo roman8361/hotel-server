@@ -4,10 +4,8 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
-import ru.kravchenko.sb.api.repository.BluetoothCodeRepository;
 import ru.kravchenko.sb.api.service.IRoomService;
 import ru.kravchenko.sb.domain.dto.FreeRoomDto;
-import ru.kravchenko.sb.domain.entity.BluetoothCode;
 
 import java.util.List;
 

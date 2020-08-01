@@ -1,7 +1,6 @@
 package ru.kravchenko.sb.api.service;
 
 import ru.kravchenko.sb.domain.dto.GuestDto;
-import ru.kravchenko.sb.domain.entity.Guest;
 
 import java.util.List;
 
