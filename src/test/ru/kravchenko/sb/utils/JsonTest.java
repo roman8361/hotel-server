@@ -4,8 +4,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 import ru.kravchenko.sb.domain.dto.GuestDto;
+import ru.kravchenko.sb.domain.dto.RequestMobileDto;
+import ru.kravchenko.sb.domain.dto.ResponseMobileDto;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -25,6 +30,24 @@ public class JsonTest {
         final String json = "{\"id\":\"7d4acb71-5a8d-4db9-8ca9-535e63c1c811\",\"firstName\":\"Андрей\",\"secondName\":\"Васильевич\",\"surName\":\"Чернец\",\"arrivalDate\":\"2020-07-10T21:00:00.000Z\",\"departureDate\":\"2020-07-14T21:00:00.000Z\",\"roomNumber\":\"1\",\"activateCodeMobile\":null,\"roomId\":null,\"activateCodeMobileId\":null}\n";
         GuestDto guestDto = objectMapper.readValue(json, GuestDto.class);
         Assert.assertNotNull(guestDto);
+    }
+
+    @Test
+    public void sendPostRequest() throws IOException {
+        String url = "http://localhost:8080/hello";
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        RequestMobileDto requestMobileDto = new RequestMobileDto();
+        requestMobileDto.setCodeActivate("1111");
+        requestMobileDto.setToken("3333");
+
+        HttpEntity entity = new HttpEntity(objectMapper.writeValueAsString(requestMobileDto), httpHeaders);
+        String result = restTemplate.postForObject(url, entity, String.class);
+
+        ResponseMobileDto responseMobileDto = objectMapper.readValue(result, ResponseMobileDto.class);
+        System.out.println(responseMobileDto);
     }
 
     private GuestDto getGuestDto() {
