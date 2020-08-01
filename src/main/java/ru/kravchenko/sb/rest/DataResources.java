@@ -2,6 +2,9 @@ package ru.kravchenko.sb.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jdk.internal.org.jline.utils.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +18,8 @@ import java.util.Date;
 
 @RestController
 public class DataResources {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DataResources.class);
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -35,6 +40,7 @@ public class DataResources {
 
     @PostMapping(path = "/hello", consumes = "application/json", produces = "application/json")
     public String hello(@RequestBody String json) throws IOException {
+        Log.debug("LALALALA {}", json);
         final RequestMobileDto mobileDto = objectMapper.readValue(json, RequestMobileDto.class);
         final ResponseMobileDto responseMobileDto = new ResponseMobileDto();
         if (mobileDto.getToken().equals("1111")) {
