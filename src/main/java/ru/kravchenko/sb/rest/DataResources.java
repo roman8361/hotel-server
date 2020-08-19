@@ -2,7 +2,6 @@ package ru.kravchenko.sb.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.internal.org.jline.utils.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,17 +39,17 @@ public class DataResources {
 
     @PostMapping(path = "/hello", consumes = "application/json", produces = "application/json")
     public String hello(@RequestBody String json) throws IOException {
-        Log.debug("LALALALA {}", json);
+        LOG.debug("LALALALA {}", json);
         final RequestMobileDto mobileDto = objectMapper.readValue(json, RequestMobileDto.class);
         final ResponseMobileDto responseMobileDto = new ResponseMobileDto();
-        if (mobileDto.getToken().equals("1111")) {
+        if (mobileDto.getToken().equals("1111") && (mobileDto.getCodeActivate().equals("2222"))) {
             responseMobileDto.setGuestName("Ivan");
             responseMobileDto.setRoomNumber("3");
             responseMobileDto.setDepartureDate(new Date());
             responseMobileDto.setMetaMessage("OK");
             return objectMapper.writeValueAsString(responseMobileDto);
         }
-        responseMobileDto.setMetaMessage("Code activate not valid");
+        responseMobileDto.setMetaMessage("CODE ACTIVATE not valid");
         return objectMapper.writeValueAsString(responseMobileDto);
     }
 

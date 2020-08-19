@@ -40,14 +40,15 @@ public class JsonTest {
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 
         RequestMobileDto requestMobileDto = new RequestMobileDto();
-        requestMobileDto.setCodeActivate("1111");
-        requestMobileDto.setToken("3333");
+        requestMobileDto.setCodeActivate("2222");
+        requestMobileDto.setToken("1111");
 
         HttpEntity entity = new HttpEntity(objectMapper.writeValueAsString(requestMobileDto), httpHeaders);
         String result = restTemplate.postForObject(url, entity, String.class);
 
         ResponseMobileDto responseMobileDto = objectMapper.readValue(result, ResponseMobileDto.class);
-        System.out.println(responseMobileDto);
+        System.out.println(responseMobileDto.getMetaMessage());
+        System.out.println(responseMobileDto.getGuestName());
     }
 
     private GuestDto getGuestDto() {
