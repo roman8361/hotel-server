@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import ru.kravchenko.sb.api.repository.ActivateCodeMobileRepository;
 import ru.kravchenko.sb.api.repository.GuestRepository;
 import ru.kravchenko.sb.api.repository.RoomRepository;
-import ru.kravchenko.sb.api.service.IActivateCodeMobileService;
-import ru.kravchenko.sb.api.service.IGuestService;
+import ru.kravchenko.sb.api.service.ActivateCodeMobileService;
+import ru.kravchenko.sb.api.service.GuestService;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 import ru.kravchenko.sb.domain.entity.Guest;
 import ru.kravchenko.sb.domain.entity.Room;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class GuestService implements IGuestService {
+public class GuestServiceImpl implements GuestService {
 
     @Autowired
     private GuestRepository guestRepository;
@@ -27,7 +27,7 @@ public class GuestService implements IGuestService {
     private ActivateCodeMobileRepository activateCodeMobileRepository;
 
     @Autowired
-    private IActivateCodeMobileService activateCodeMobileService;
+    private ActivateCodeMobileService activateCodeMobileService;
 
 //    @Override
 //    public void editGuest(Guest guest) {

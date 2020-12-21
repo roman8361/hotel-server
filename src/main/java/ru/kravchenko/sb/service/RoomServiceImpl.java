@@ -5,8 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.kravchenko.sb.api.repository.BluetoothCodeRepository;
 import ru.kravchenko.sb.api.repository.GuestRepository;
 import ru.kravchenko.sb.api.repository.RoomRepository;
-import ru.kravchenko.sb.api.service.IRoomService;
-import ru.kravchenko.sb.constant.AppConstant;
+import ru.kravchenko.sb.api.service.RoomService;
 import ru.kravchenko.sb.domain.dto.FreeRoomDto;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 import ru.kravchenko.sb.domain.dto.RoomDto;
@@ -19,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class RoomService implements IRoomService {
+public class RoomServiceImpl implements RoomService {
 
     @Autowired
     private BluetoothCodeRepository bluetoothCodeRepository;

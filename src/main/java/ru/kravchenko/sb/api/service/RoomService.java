@@ -6,7 +6,7 @@ import ru.kravchenko.sb.domain.dto.RoomDto;
 
 import java.util.List;
 
-public interface IRoomService {
+public interface RoomService {
 
     List<GuestDto> getGuestFromRoom(String roomNumber);
 

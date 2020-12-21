@@ -10,7 +10,9 @@ import java.util.Date;
 @Setter
 public class ResponseMobileDto extends AbstractEntityDto {
 
-    private String guestName;
+    private String firstName;
+
+    private String secondName;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     private Date departureDate;

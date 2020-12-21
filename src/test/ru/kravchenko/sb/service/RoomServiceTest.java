@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.kravchenko.sb.api.service.IRoomService;
+import ru.kravchenko.sb.api.service.RoomService;
 import ru.kravchenko.sb.domain.dto.FreeRoomDto;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 import ru.kravchenko.sb.domain.dto.RoomDto;
@@ -19,7 +19,7 @@ import java.util.List;
 public class RoomServiceTest {
 
     @Autowired
-    private IRoomService roomService;
+    private RoomService roomService;
 
     @Test
     public void getAllGuestFromRoom() {

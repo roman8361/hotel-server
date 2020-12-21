@@ -4,17 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.kravchenko.sb.api.repository.ActivateCodeMobileRepository;
 import ru.kravchenko.sb.api.repository.GuestRepository;
-import ru.kravchenko.sb.api.service.IActivateCodeMobileService;
+import ru.kravchenko.sb.api.service.ActivateCodeMobileService;
 import ru.kravchenko.sb.domain.dto.ActivateCodeMobileDto;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 import ru.kravchenko.sb.domain.entity.ActivateCodeMobile;
+import ru.kravchenko.sb.domain.entity.Guest;
 import ru.kravchenko.sb.util.GenerateRandomNumberUtils;
 
 import java.util.Date;
 import java.util.List;
 
 @Service
-public class ActivateCodeMobileService implements IActivateCodeMobileService {
+public class ActivateCodeMobileServiceImpl implements ActivateCodeMobileService {
 
     @Autowired
     private ActivateCodeMobileRepository activateMobileRepository;
@@ -66,6 +67,12 @@ public class ActivateCodeMobileService implements IActivateCodeMobileService {
         activateMobileRepository.save(convertDtoToActivateCodeMobile(activateCodeMobileDto));
     }
 
+    @Override
+    public Guest getGuestByActivateCode(String activateCode) {
+        ActivateCodeMobile activateCodeMobile = activateMobileRepository.findByActivateCodeMobile(activateCode);
+        return activateCodeMobile.getGuest();
+    }
+
 //    @Override
 //    public ActivateCodeMobile updateActivateCodeMobile(Guest guest) {
 //        System.out.println("updateActivateCodeMobile");
@@ -84,7 +91,7 @@ public class ActivateCodeMobileService implements IActivateCodeMobileService {
         return GenerateRandomNumberUtils.getStringRandomValue();
     }
 
-    private ru.kravchenko.sb.domain.entity.ActivateCodeMobile convertDtoToActivateCodeMobile(ActivateCodeMobileDto activateCodeMobileDto){
+    private ActivateCodeMobile convertDtoToActivateCodeMobile(ActivateCodeMobileDto activateCodeMobileDto){
         ru.kravchenko.sb.domain.entity.ActivateCodeMobile activateCodeMobile = new ru.kravchenko.sb.domain.entity.ActivateCodeMobile();
         activateCodeMobile.setId(activateCodeMobileDto.getId());
         activateCodeMobile.setActivateCodeMobile(activateCodeMobileDto.getActivateCodeMobile());

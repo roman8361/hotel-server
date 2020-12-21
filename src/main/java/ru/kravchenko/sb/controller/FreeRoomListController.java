@@ -4,7 +4,7 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
-import ru.kravchenko.sb.api.service.IRoomService;
+import ru.kravchenko.sb.api.service.RoomService;
 import ru.kravchenko.sb.domain.dto.FreeRoomDto;
 
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
 public class FreeRoomListController {
 
     @Autowired
-    private IRoomService roomService;
+    private RoomService roomService;
 
     public List<FreeRoomDto> getFreeRoomList() {
         List<FreeRoomDto> result = roomService.getFreeRoom();

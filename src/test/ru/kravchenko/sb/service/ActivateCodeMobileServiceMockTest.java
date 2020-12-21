@@ -20,7 +20,7 @@ public class ActivateCodeMobileServiceMockTest {
     private ActivateCodeMobileRepository activateCodeMobileRepository;
 
     @InjectMocks
-    private ActivateCodeMobileService activateCodeMobileService;
+    private ActivateCodeMobileServiceImpl activateCodeMobileService;
 
     @Test
     public void getActivateCode(){

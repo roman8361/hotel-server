@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
-import ru.kravchenko.sb.api.service.IGuestService;
+import ru.kravchenko.sb.api.service.GuestService;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 
 @Getter
@@ -21,7 +21,7 @@ import ru.kravchenko.sb.domain.dto.GuestDto;
 public class GuestEditController {
 
     @Autowired
-    private IGuestService guestService;
+    private GuestService guestService;
 
     private String guestId;
 

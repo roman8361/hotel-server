@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import ru.kravchenko.sb.api.repository.ActivateCodeMobileRepository;
 import ru.kravchenko.sb.api.repository.GuestRepository;
 import ru.kravchenko.sb.api.repository.RoomRepository;
-import ru.kravchenko.sb.api.service.IGuestService;
+import ru.kravchenko.sb.api.service.GuestService;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 import ru.kravchenko.sb.domain.entity.Guest;
 import ru.kravchenko.sb.domain.entity.Room;
@@ -41,7 +41,7 @@ public class GuestServiceTest {
     private GuestRepository guestRepository;
 
     @Autowired
-    private IGuestService guestService;
+    private GuestService guestService;
 
     @Autowired
     private RoomRepository roomRepository;

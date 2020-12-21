@@ -1,7 +1,6 @@
 package ru.kravchenko.sb.repository;
 
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import ru.kravchenko.sb.api.repository.ActivateCodeMobileRepository;
 import ru.kravchenko.sb.api.repository.GuestRepository;
 import ru.kravchenko.sb.api.repository.RoomRepository;
-import ru.kravchenko.sb.api.service.IActivateCodeMobileService;
+import ru.kravchenko.sb.api.service.ActivateCodeMobileService;
 import ru.kravchenko.sb.domain.entity.ActivateCodeMobile;
 import ru.kravchenko.sb.domain.entity.Guest;
 import ru.kravchenko.sb.domain.entity.Room;
@@ -31,7 +30,7 @@ public class GuestRepositoryTest {
     private ActivateCodeMobileRepository activateCodeMobileRepository;
 
     @Autowired
-    private IActivateCodeMobileService activateCodeMobileService;
+    private ActivateCodeMobileService activateCodeMobileService;
 
     @Test
     public void insertGuest(){

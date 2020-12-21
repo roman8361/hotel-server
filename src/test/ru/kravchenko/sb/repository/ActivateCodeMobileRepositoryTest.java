@@ -1,5 +1,6 @@
 package ru.kravchenko.sb.repository;
 
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.kravchenko.sb.api.repository.ActivateCodeMobileRepository;
 import ru.kravchenko.sb.api.repository.GuestRepository;
-import ru.kravchenko.sb.api.service.IActivateCodeMobileService;
+import ru.kravchenko.sb.api.service.ActivateCodeMobileService;
 import ru.kravchenko.sb.domain.entity.ActivateCodeMobile;
 import ru.kravchenko.sb.domain.entity.Guest;
 
@@ -23,7 +24,7 @@ public class ActivateCodeMobileRepositoryTest {
     private ActivateCodeMobileRepository activateCodeMobileRepository;
 
     @Autowired
-    private IActivateCodeMobileService activateCodeMobileService;
+    private ActivateCodeMobileService activateCodeMobileService;
 
     @Autowired
     private GuestRepository guestRepository;
@@ -47,13 +48,22 @@ public class ActivateCodeMobileRepositoryTest {
     }
 
     @Test
+    public void existCodeToActivateCodeList(){
+        List<String> allActivateCode = activateCodeMobileRepository.getAllActivateCodeMobile();
+        Assert.assertTrue(allActivateCode.contains("4886"));
+        Assert.assertTrue(allActivateCode.contains("5313"));
+    }
+
+    @Test
     public void dellById() {
         activateCodeMobileRepository.deleteById("07687ab2-d4fd-4897-96af-ac8d7d82b7e0");
     }
 
     @Test
     public void getDataToActivateCode(){
-        ActivateCodeMobile activateCodeMobile = activateCodeMobileRepository.findByActivateCodeMobile("2740");
+        ActivateCodeMobile activateCodeMobile = activateCodeMobileRepository.findByActivateCodeMobile("4886");
+        System.out.println(activateCodeMobile.getGuest().getFirstName());
+        System.out.println(activateCodeMobile.getGuest().getSecondName());
         System.out.println(activateCodeMobile.getGuest().getSurName());
         System.out.println(activateCodeMobile.getGuest().getDepartureDate());
         System.out.println(activateCodeMobile.getGuest().getRoom().getRoomNumber());

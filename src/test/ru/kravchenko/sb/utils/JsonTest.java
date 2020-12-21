@@ -35,6 +35,7 @@ public class JsonTest {
     @Test
     public void sendPostRequest() throws IOException {
         String url = "http://localhost:8080/hello";
+//        String url = "https://hookb.in/zro12Q1y9EuykkGKwaPJч";
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -48,7 +49,27 @@ public class JsonTest {
 
         ResponseMobileDto responseMobileDto = objectMapper.readValue(result, ResponseMobileDto.class);
         System.out.println(responseMobileDto.getMetaMessage());
-        System.out.println(responseMobileDto.getGuestName());
+        System.out.println(responseMobileDto.getFirstName());
+    }
+
+    @Test
+    public void sendPostRequestToActivateCodeUrl() throws IOException {
+        String url = "http://localhost:8080/activateCodeUrl";
+//        String url = "https://hookb.in/zro12Q1y9EuykkGKwaPJч";
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        RequestMobileDto requestMobileDto = new RequestMobileDto();
+        requestMobileDto.setCodeActivate("2222");
+        requestMobileDto.setToken("1111");
+
+        HttpEntity entity = new HttpEntity(objectMapper.writeValueAsString(requestMobileDto), httpHeaders);
+        String result = restTemplate.postForObject(url, entity, String.class);
+
+        ResponseMobileDto responseMobileDto = objectMapper.readValue(result, ResponseMobileDto.class);
+        System.out.println(responseMobileDto.getMetaMessage());
+        System.out.println(responseMobileDto.getFirstName());
     }
 
     private GuestDto getGuestDto() {

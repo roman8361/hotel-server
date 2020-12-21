@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.kravchenko.sb.api.service.IBluetoothCodeService;
+import ru.kravchenko.sb.api.service.BluetoothCodeService;
 import ru.kravchenko.sb.domain.dto.BluetoothCodeDto;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 public class BluetoothCodeServiceTest {
 
     @Autowired
-    IBluetoothCodeService bluetoothCodeService;
+    BluetoothCodeService bluetoothCodeService;
 
     @Test
     public void findAllBluetoothCode(){

@@ -6,8 +6,8 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.RequestScope;
-import ru.kravchenko.sb.api.service.IGuestService;
-import ru.kravchenko.sb.api.service.IRoomService;
+import ru.kravchenko.sb.api.service.GuestService;
+import ru.kravchenko.sb.api.service.RoomService;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 
 @Getter
@@ -21,10 +21,10 @@ import ru.kravchenko.sb.domain.dto.GuestDto;
 public class GuestInsertController {
 
     @Autowired
-    private IGuestService guestService;
+    private GuestService guestService;
 
     @Autowired
-    private IRoomService roomService;
+    private RoomService roomService;
 
     private GuestDto guestDto = new GuestDto();
 

@@ -4,7 +4,7 @@ import ru.kravchenko.sb.domain.dto.GuestDto;
 
 import java.util.List;
 
-public interface IGuestService {
+public interface GuestService {
 
    void editGuest(GuestDto guest);
 

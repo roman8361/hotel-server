@@ -4,7 +4,7 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
-import ru.kravchenko.sb.api.service.IGuestService;
+import ru.kravchenko.sb.api.service.GuestService;
 import ru.kravchenko.sb.domain.dto.GuestDto;
 
 import javax.annotation.PostConstruct;
@@ -20,7 +20,7 @@ import java.util.List;
 public class GuestListController {
 
     @Autowired
-    private IGuestService guestService;
+    private GuestService guestService;
 
     private List<GuestDto> guestList = new LinkedList<>();
 
