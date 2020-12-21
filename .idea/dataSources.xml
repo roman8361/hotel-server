@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://51.210.87.68:5432/hotel</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="hotel" uuid="4e1ecfe1-b044-4bed-8eb1-da346e70ebdf">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:file:$PROJECT_DIR$/src/main/resources/data/hotel;AUTO_SERVER=true</jdbc-url>
+    </data-source>
   </component>
 </project>

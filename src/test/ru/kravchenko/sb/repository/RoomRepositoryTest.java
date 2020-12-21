@@ -1,6 +1,5 @@
 package ru.kravchenko.sb.repository;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,6 @@ public class RoomRepositoryTest {
     private GuestRepository guestRepository;
 
     @Test
-//    @Ignore
     public void fillRoomTable() {
         for (int i = 1; i < 11; i++) {
             final Room room = new Room();
@@ -37,15 +35,13 @@ public class RoomRepositoryTest {
     }
 
     @Test
-    @Ignore
     public void insertRoom() {
         final Room room = new Room();
-        room.setRoomNumber("10");
+        room.setRoomNumber("1");
         roomRepository.save(room);
     }
 
     @Test
-//    @Ignore
     public void dellAllRooms(){
         roomRepository.deleteAll();
     }
@@ -65,7 +61,6 @@ public class RoomRepositoryTest {
     }
 
     @Test
-    @Ignore
     public void dellRoomByNumber(){
 //        Room room = roomRepository.findByRoomNumber("10");
 //        roomRepository.delete(room);

@@ -48,8 +48,6 @@ public class DateTest {
         System.out.println(new Date());
         System.out.println(currentDateWithTwoSecond);
         System.out.println(new Date().before(currentDateWithTwoSecond));
-
-
     }
 
     private Date getDatePlusTenMinToCurrentDate(Long second) {
